@@ -7,25 +7,61 @@ const THEME_COLORS = {
   light: { background: 'ffffff', text: '0f172a', primary: '4f46e5' },
 }
 
+// Calendly localise surtout selon la langue du navigateur du visiteur.
+// `locale` n'est pas officiellement documenté pour l'embed : on l'envoie
+// quand même, Calendly l'utilise s'il le sait, sinon il l'ignore.
+const CALENDLY_LOCALE = { fr: 'fr', en: 'en' }
+const CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js'
+
 export default function RendezVous({ theme }) {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const containerRef = useRef(null)
 
-  useEffect(() => {
-    if (!profile.calendly) return
-    if (window.Calendly) return
-
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
-    return () => document.body.removeChild(script)
-  }, [])
-
-  if (!profile.calendly) return null
-
   const { background, text, primary } = THEME_COLORS[theme] ?? THEME_COLORS.dark
-  const widgetUrl = `${profile.calendly}?hide_gdpr_banner=1&background_color=${background}&text_color=${text}&primary_color=${primary}`
+  const widgetUrl = profile.calendly
+    ? `${profile.calendly}?hide_gdpr_banner=1` +
+      `&background_color=${background}&text_color=${text}&primary_color=${primary}` +
+      `&locale=${CALENDLY_LOCALE[lang] ?? 'fr'}`
+    : null
+
+  useEffect(() => {
+    if (!widgetUrl) return
+    let cancelled = false
+
+    const render = () => {
+      if (cancelled || !containerRef.current || !window.Calendly) return
+      containerRef.current.innerHTML = ''
+      window.Calendly.initInlineWidget({
+        url: widgetUrl,
+        parentElement: containerRef.current,
+      })
+    }
+
+    if (window.Calendly) {
+      render()
+      return () => {
+        cancelled = true
+      }
+    }
+
+    let script = document.querySelector(`script[src="${CALENDLY_SCRIPT}"]`)
+    const created = !script
+    if (!script) {
+      script = document.createElement('script')
+      script.src = CALENDLY_SCRIPT
+      script.async = true
+      document.body.appendChild(script)
+    }
+    script.addEventListener('load', render)
+
+    return () => {
+      cancelled = true
+      script.removeEventListener('load', render)
+      if (created) script.remove()
+    }
+  }, [widgetUrl])
+
+  if (!widgetUrl) return null
 
   return (
     <section id="rendez-vous" className="scroll-mt-20 border-t border-slate-200 py-20 dark:border-white/5 sm:py-24">
@@ -39,12 +75,7 @@ export default function RendezVous({ theme }) {
         </div>
 
         <div className="reveal card mt-10 overflow-hidden p-2 sm:p-4">
-          <div
-            ref={containerRef}
-            className="calendly-inline-widget"
-            data-url={widgetUrl}
-            style={{ minWidth: '280px', height: '700px' }}
-          />
+          <div ref={containerRef} style={{ minWidth: '280px', height: '700px' }} />
         </div>
       </div>
     </section>
