@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { profile } from '../data/profile.js'
+import { useLang } from '../i18n/LanguageContext.jsx'
 
 const THEME_COLORS = {
   dark: { background: '0f172a', text: 'e2e8f0', primary: '818cf8' },
@@ -7,6 +8,7 @@ const THEME_COLORS = {
 }
 
 export default function RendezVous({ theme }) {
+  const { t } = useLang()
   const containerRef = useRef(null)
 
   useEffect(() => {
@@ -30,13 +32,10 @@ export default function RendezVous({ theme }) {
       <div className="container-page">
         <div className="reveal mx-auto max-w-2xl text-center">
           <span className="eyebrow justify-center">
-            <span className="h-px w-8 bg-brand-400" /> Rendez-vous
+            <span className="h-px w-8 bg-brand-400" /> {t('rdv.eyebrow')}
           </span>
-          <h2 className="section-title mt-4">Réservez un appel directement</h2>
-          <p className="mt-4 text-slate-600 dark:text-slate-400">
-            Choisissez un créneau qui vous arrange pour discuter de votre projet, sans échange
-            d'emails inutile.
-          </p>
+          <h2 className="section-title mt-4">{t('rdv.title')}</h2>
+          <p className="mt-4 text-slate-600 dark:text-slate-400">{t('rdv.intro')}</p>
         </div>
 
         <div className="reveal card mt-10 overflow-hidden p-2 sm:p-4">

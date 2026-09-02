@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
 import { profile } from '../data/profile.js'
+import { useLang } from '../i18n/LanguageContext.jsx'
 
 export default function CvModal({ open, onClose }) {
+  const { t } = useLang()
+
   useEffect(() => {
     if (!open) return
     const onKey = (e) => e.key === 'Escape' && onClose()
@@ -33,12 +36,12 @@ export default function CvModal({ open, onClose }) {
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                 <path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16" />
               </svg>
-              Télécharger
+              {t('cv.download')}
             </a>
             <button
               type="button"
               onClick={onClose}
-              aria-label="Fermer"
+              aria-label={t('cv.close')}
               className="grid h-9 w-9 place-items-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-ink-900 dark:hover:bg-white/5 dark:hover:text-white"
             >
               ✕
@@ -47,7 +50,7 @@ export default function CvModal({ open, onClose }) {
         </div>
         <iframe
           src={profile.cv}
-          title="Aperçu du CV"
+          title={t('cv.preview')}
           scrolling="yes"
           style={{ WebkitOverflowScrolling: 'touch' }}
           className="min-h-0 flex-1 touch-pan-y overscroll-contain bg-slate-100 dark:bg-ink-900"

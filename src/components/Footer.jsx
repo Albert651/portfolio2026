@@ -1,4 +1,5 @@
 import { profile } from '../data/profile.js'
+import { useLang } from '../i18n/LanguageContext.jsx'
 
 const icons = {
   Email: (
@@ -26,11 +27,13 @@ const icons = {
 }
 
 export default function Footer() {
+  const { tr } = useLang()
+
   return (
     <footer className="border-t border-slate-200 py-10 dark:border-white/5">
       <div className="container-page flex flex-col items-center justify-between gap-4 text-sm text-slate-500 sm:flex-row">
         <p>
-          © {new Date().getFullYear()} {profile.name} — {profile.role}
+          © {new Date().getFullYear()} {profile.name} — {tr(profile.role)}
         </p>
         <div className="flex items-center gap-3">
           {profile.socials.map((s) => (

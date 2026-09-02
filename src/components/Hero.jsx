@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { profile } from '../data/profile.js'
+import { useLang } from '../i18n/LanguageContext.jsx'
 import CvModal from './CvModal.jsx'
 
 export default function Hero() {
+  const { t, tr } = useLang()
   const [cvOpen, setCvOpen] = useState(false)
 
   return (
@@ -29,43 +31,43 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
-            {profile.availability} · {profile.workMode}
+            {tr(profile.availability)} · {tr(profile.workMode)}
           </span>
 
           <h1 className="reveal mt-6 text-4xl font-black leading-tight tracking-tight text-ink-900 dark:text-white sm:text-6xl">
             {profile.name}
             <span className="mt-2 block bg-gradient-to-r from-brand-300 via-brand-400 to-cyan-400 bg-clip-text text-transparent">
-              {profile.role}
+              {tr(profile.role)}
             </span>
           </h1>
 
           <p className="reveal mx-auto mt-6 max-w-2xl text-base text-slate-600 dark:text-slate-400 sm:text-lg">
-            {profile.tagline}
+            {tr(profile.tagline)}
           </p>
 
           <div className="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
             <a href="#projects" className="btn-primary">
-              Voir mes projets
+              {t('hero.viewProjects')}
             </a>
             <a href="#contact" className="btn-ghost">
-              Me contacter
+              {t('hero.contact')}
             </a>
             <button type="button" onClick={() => setCvOpen(true)} className="btn-ghost">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
                 <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
                 <circle cx="12" cy="12" r="3" />
               </svg>
-              Voir mon CV
+              {t('hero.viewCv')}
             </button>
           </div>
 
           <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
 
           <dl className="reveal mx-auto mt-14 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
-            {profile.stats.map((s) => (
-              <div key={s.label} className="card px-5 py-4 text-center">
-                <dt className="text-2xl font-extrabold text-ink-900 dark:text-white">{s.value}</dt>
-                <dd className="mt-1 text-xs text-slate-600 dark:text-slate-400">{s.label}</dd>
+            {profile.stats.map((s, i) => (
+              <div key={i} className="card px-5 py-4 text-center">
+                <dt className="text-2xl font-extrabold text-ink-900 dark:text-white">{tr(s.value)}</dt>
+                <dd className="mt-1 text-xs text-slate-600 dark:text-slate-400">{tr(s.label)}</dd>
               </div>
             ))}
           </dl>

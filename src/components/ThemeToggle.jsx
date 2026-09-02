@@ -1,12 +1,15 @@
+import { useLang } from '../i18n/LanguageContext.jsx'
+
 export default function ThemeToggle({ theme, onToggle }) {
+  const { t } = useLang()
   const isDark = theme === 'dark'
 
   return (
     <button
       type="button"
       onClick={onToggle}
-      aria-label={isDark ? 'Activer le mode clair' : 'Activer le mode sombre'}
-      title={isDark ? 'Mode clair' : 'Mode sombre'}
+      aria-label={isDark ? t('theme.toLight') : t('theme.toDark')}
+      title={isDark ? t('theme.light') : t('theme.dark')}
       className="grid h-10 w-10 place-items-center rounded-lg border border-slate-200 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white"
     >
       {isDark ? (
