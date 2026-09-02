@@ -1,0 +1,62 @@
+
+title: "Plateforme CRM, partie admin",
+https://relation-client.onrender.com/Accueil
+Pour ce projet CRM, j'ai été en charge du développement de la partie administrateur. L'admin dispose d'une interface complète pour gérer les clients, les tâches, les prospections commerciales, les devis, les documents, ainsi que les interactions. Un module de rapports permet également d'analyser les statistiques des tâches et des campagnes de prospection
+technologies: ["ReactJs", "Bootstrap5", "Laravel", "MySQL"],
+
+title: "Sécurlite fournit des solutions d'éclairage intelligentes et durables",
+description: "Développement de modules Mangeto : conception et intégration de fonctionnalités sur mesure pour répondre aux besoins spécifiques des clients, notamment la gestion des produits, des devis, des promotions et des workflows personnalisés. Personnalisation de thèmes : adaptation complète du design pour correspondre à l'identité visuelle de Sécurlite, amélioration de l'ergonomie et de l'expérience utilisateur sur desktop et mobile. Optimisation des performances : amélioration de la vitesse de chargement, réduction des erreurs et garantie de la compatibilité entre les différents navigateurs. Intégration et maintenance : mise en place de nouvelles fonctionnalités, correction de bugs et suivi des mises à jour Mangeto pour assurer la sécurité et la stabilité du site.",
+technologies: ["Mangeto2", "Bootstrap", "Angular", "MySQL"],
+link: "https://securlite.awebi-lab.com/"
+
+title: "Site e-commerce de vente de matériel informatique",
+description: "Le projet consiste en une boutique en ligne dédiée à la vente de matériel informatique (ordinateurs, composants, périphériques et accessoires). Le site e-commerce a été conçu pour offrir une navigation fluide, une gestion optimisée des catalogues produits et une expérience d'achat sécurisée, depuis la découverte des articles jusqu'à la finalisation de la commande.",
+technologies: ["Laravel11", "HTML5, TailwindCSS", "JavaScript", "MySql"],
+link: "https://labservice.awebi-lab.com/"
+
+title: "Site de location de sonorisation",
+description: "J’ai participé au développement du projet Rent Sound System, un site de location de matériel de sonorisation à Paris. J’ai travaillé sur l’intégration de la maquette graphique ainsi que sur le développement des différentes fonctionnalités du site.Le projet a été réalisé avec Symfony pour le back-end et Bootstrap pour le design et la mise en page, en veillant à une interface moderne, responsive et facile à utiliser.",
+technologies: ["Symfony 3.1", "Bootstrap","MySQL"],
+link: "https://rentsoundsystem.com/"
+
+title: "Site Immobilier Plusdimmo",
+description: "J’ai participé à la réalisation du projet immobilier Plusdimmo, un site dédié à la vente et à la location d’appartements et de maisons sur la Côte d’Azur et en Corse. J’ai travaillé sur l’intégration de la maquette graphique avec Elementor, la personnalisation des sections, ainsi que sur l’implémentation de plusieurs fonctionnalités dynamiques (formulaires, calendrier, animations, cartes interactives). Le site repose sur WordPress avec PHP 8.3, utilise ReactJS et diverses librairies JavaScript (GSAP, Isotope, Chart.js) pour enrichir l’expérience utilisateur, tout en garantissant une interface moderne, responsive et optimisée pour le référencement (SEO).",
+technologies: [
+  "WordPress",
+  "PHP 8.3",
+  "Elementor",
+  "ReactJS",
+  "JavaScript",
+  "MySQL",
+  "GSAP",
+  "Google Maps",
+  "RankMath SEO"
+       		],
+link: "https://plusdimmo.com/"
+
+
+title: "Site Immobilier Madaimmo",
+description: "J’ai participé à la réalisation du projet immobilier Madaimmo, un site dédié à la vente et à la location d’appartements et de maisons à Madagascar. J’ai travaillé sur l’intégration de la maquette graphique avec Elementor, la personnalisation des sections, ainsi que sur l’implémentation de plusieurs fonctionnalités dynamiques (formulaires, calendrier, animations, cartes interactives). Le site repose sur WordPress avec PHP 8.3, utilise Angular et diverses librairies JavaScript (GSAP, Isotope, Chart.js) pour enrichir l’expérience utilisateur, tout en garantissant une interface moderne, responsive et optimisée pour le référencement (SEO).",
+technologies: [
+  "WordPress",
+  "PHP 8.3",
+  "Elementor",
+  "Angular",
+  "JavaScript",
+  "MySQL",
+  "GSAP",
+  "Google Maps",
+  "RankMath SEO"
+            ],
+link: "https://madaimmo.com/"
+
+Title "Site Vente Materiel Electrique"
+https://www.equipementpolar.com/
+Technologie: Shopifly
+
+
+Title : "Site de vente produit energie"
+Technologie: Shopifly
+https://maplemc2.com/
+
+80d54b38-4146-4f64-91c3-3aab0c571520
