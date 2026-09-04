@@ -25,7 +25,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="reveal space-y-6">
+        <div className="reveal space-y-6" style={{ '--reveal-delay': '120ms' }}>
           <div className="card p-6">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               {t('about.education')}

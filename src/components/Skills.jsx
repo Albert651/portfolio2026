@@ -17,7 +17,11 @@ export default function Skills() {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group, gi) => (
-            <div key={gi} className="reveal card p-6 hover:border-slate-300 hover:bg-slate-100/60 dark:hover:border-white/10 dark:hover:bg-white/[0.05]">
+            <div
+              key={gi}
+              className="reveal card p-6 hover:border-slate-300 hover:bg-slate-100/60 dark:hover:border-white/10 dark:hover:bg-white/[0.05]"
+              style={{ '--reveal-delay': `${(gi % 4) * 90}ms` }}
+            >
               <h3 className="text-sm font-bold uppercase tracking-wider text-brand-600 dark:text-brand-300">
                 {tr(group.title)}
               </h3>

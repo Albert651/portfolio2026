@@ -74,7 +74,7 @@ export default function RendezVous({ theme }) {
           <p className="mt-4 text-slate-600 dark:text-slate-400">{t('rdv.intro')}</p>
         </div>
 
-        <div className="reveal card mt-10 overflow-hidden p-2 sm:p-4">
+        <div className="reveal card mt-10 overflow-hidden p-2 sm:p-4" style={{ '--reveal-delay': '120ms' }}>
           <div ref={containerRef} style={{ minWidth: '280px', height: '700px' }} />
         </div>
       </div>

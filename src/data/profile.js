@@ -40,8 +40,8 @@ export const profile = {
     },
   ],
   stats: [
-    { value: { fr: '4 ans', en: '4 yrs' }, label: { fr: 'd’expérience en télétravail', en: 'of remote experience' } },
-    { value: '10+', label: { fr: 'projets livrés', en: 'projects delivered' } },
+    { number: 4, suffix: { fr: ' ans', en: ' yrs' }, label: { fr: 'd’expérience en télétravail', en: 'of remote experience' } },
+    { number: 10, suffix: '+', label: { fr: 'projets livrés', en: 'projects delivered' } },
     { value: 'Full-Stack', label: { fr: 'back-end, front-end & API', en: 'back-end, front-end & API' } },
   ],
   education: [

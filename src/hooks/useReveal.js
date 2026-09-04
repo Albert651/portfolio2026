@@ -3,29 +3,48 @@ import { useEffect } from 'react'
 /**
  * Ajoute la classe `is-visible` aux elements `.reveal` quand ils entrent
  * dans le viewport. Animation d'apparition au scroll, sans dependance.
+ * Un MutationObserver surveille aussi les elements `.reveal` ajoutes plus
+ * tard (ex: cartes projets qui apparaissent au changement de filtre).
  */
 export default function useReveal() {
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll('.reveal'))
-
     if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'))
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'))
       return
     }
 
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
+            io.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
     )
 
-    els.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    const observeAll = (root) => {
+      root.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => io.observe(el))
+    }
+
+    observeAll(document)
+
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType !== 1) return
+          if (node.matches?.('.reveal')) io.observe(node)
+          observeAll(node)
+        })
+      })
+    })
+    mo.observe(document.body, { childList: true, subtree: true })
+
+    return () => {
+      io.disconnect()
+      mo.disconnect()
+    }
   }, [])
 }

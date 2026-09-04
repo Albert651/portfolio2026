@@ -46,10 +46,7 @@ export default function Navbar({ theme, toggleTheme }) {
         <ul className="hidden items-center gap-1 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-ink-900 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white"
-              >
+              <a href={l.href} className="nav-link">
                 {t(l.key)}
               </a>
             </li>
@@ -75,7 +72,7 @@ export default function Navbar({ theme, toggleTheme }) {
       </nav>
 
       {open && (
-        <div className="border-t border-slate-200 bg-white/95 backdrop-blur-md dark:border-white/5 dark:bg-ink-900/95 md:hidden">
+        <div className="animate-fade-up border-t border-slate-200 bg-white/95 backdrop-blur-md dark:border-white/5 dark:bg-ink-900/95 md:hidden">
           <ul className="container-page flex flex-col py-3">
             {links.map((l) => (
               <li key={l.href}>

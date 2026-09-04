@@ -20,6 +20,7 @@ export default function Experience() {
             <li
               key={idx}
               className="reveal card p-6 hover:border-slate-300 hover:bg-slate-100/60 dark:hover:border-white/10 dark:hover:bg-white/[0.05] sm:p-8"
+              style={{ '--reveal-delay': `${idx * 90}ms` }}
             >
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
                 <div>

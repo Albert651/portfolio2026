@@ -94,7 +94,7 @@ export default function Contact() {
               </ul>
             </div>
 
-            <form onSubmit={onSubmit} className="reveal space-y-4">
+            <form onSubmit={onSubmit} className="reveal space-y-4" style={{ '--reveal-delay': '120ms' }}>
               <div>
                 <label htmlFor="name" className="mb-1.5 block text-xs font-semibold text-slate-600 dark:text-slate-400">
                   {t('contact.name')}

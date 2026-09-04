@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { profile } from '../data/profile.js'
 import { useLang } from '../i18n/LanguageContext.jsx'
+import AnimatedNumber from './AnimatedNumber.jsx'
 import CvModal from './CvModal.jsx'
 
 export default function Hero() {
@@ -10,8 +11,8 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
       <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]" />
-      <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/25 blur-[120px]" />
-      <div className="absolute top-40 right-0 h-64 w-64 rounded-full bg-cyan-500/15 blur-[120px]" />
+      <div className="animate-float absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/25 blur-[120px]" />
+      <div className="animate-float absolute top-40 right-0 h-64 w-64 rounded-full bg-cyan-500/15 blur-[120px] [animation-delay:2s]" />
 
       <div className="container-page relative">
         <div className="mx-auto max-w-3xl text-center">
@@ -26,7 +27,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <span className="reveal inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-300">
+          <span
+            className="reveal inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-300"
+            style={{ '--reveal-delay': '100ms' }}
+          >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -34,18 +38,24 @@ export default function Hero() {
             {tr(profile.availability)} · {tr(profile.workMode)}
           </span>
 
-          <h1 className="reveal mt-6 text-4xl font-black leading-tight tracking-tight text-ink-900 dark:text-white sm:text-6xl">
+          <h1
+            className="reveal mt-6 text-4xl font-black leading-tight tracking-tight text-ink-900 dark:text-white sm:text-6xl"
+            style={{ '--reveal-delay': '180ms' }}
+          >
             {profile.name}
             <span className="mt-2 block bg-gradient-to-r from-brand-300 via-brand-400 to-cyan-400 bg-clip-text text-transparent">
               {tr(profile.role)}
             </span>
           </h1>
 
-          <p className="reveal mx-auto mt-6 max-w-2xl text-base text-slate-600 dark:text-slate-400 sm:text-lg">
+          <p
+            className="reveal mx-auto mt-6 max-w-2xl text-base text-slate-600 dark:text-slate-400 sm:text-lg"
+            style={{ '--reveal-delay': '260ms' }}
+          >
             {tr(profile.tagline)}
           </p>
 
-          <div className="reveal mt-9 flex flex-wrap items-center justify-center gap-3">
+          <div className="reveal mt-9 flex flex-wrap items-center justify-center gap-3" style={{ '--reveal-delay': '340ms' }}>
             <a href="#projects" className="btn-primary">
               {t('hero.viewProjects')}
             </a>
@@ -63,10 +73,19 @@ export default function Hero() {
 
           <CvModal open={cvOpen} onClose={() => setCvOpen(false)} />
 
-          <dl className="reveal mx-auto mt-14 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+          <dl
+            className="reveal mx-auto mt-14 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3"
+            style={{ '--reveal-delay': '420ms' }}
+          >
             {profile.stats.map((s, i) => (
               <div key={i} className="card px-5 py-4 text-center">
-                <dt className="text-2xl font-extrabold text-ink-900 dark:text-white">{tr(s.value)}</dt>
+                <dt className="text-2xl font-extrabold text-ink-900 dark:text-white">
+                  {s.number != null ? (
+                    <AnimatedNumber value={s.number} suffix={s.suffix ? tr(s.suffix) : ''} />
+                  ) : (
+                    tr(s.value)
+                  )}
+                </dt>
                 <dd className="mt-1 text-xs text-slate-600 dark:text-slate-400">{tr(s.label)}</dd>
               </div>
             ))}

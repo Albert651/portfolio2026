@@ -18,7 +18,7 @@ function ArrowIcon() {
   )
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const { t, tr } = useLang()
 
   return (
@@ -26,7 +26,8 @@ function ProjectCard({ project }) {
       href={project.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="group card flex flex-col p-6 hover:border-brand-400/40 hover:bg-slate-100/60 dark:hover:bg-white/[0.05] sm:p-7"
+      className="group reveal card flex flex-col p-6 hover:border-brand-400/40 hover:bg-slate-100/60 dark:hover:bg-white/[0.05] sm:p-7"
+      style={{ '--reveal-delay': `${(index % 3) * 90}ms` }}
     >
       <div className="flex items-start justify-between gap-4">
         <span className="chip !border-brand-400/20 !bg-brand-400/10 !text-brand-600 dark:!text-brand-300">
@@ -101,8 +102,8 @@ export default function Projects() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p) => (
-            <ProjectCard key={p.title.fr} project={p} />
+          {filtered.map((p, i) => (
+            <ProjectCard key={p.title.fr} project={p} index={i} />
           ))}
         </div>
       </div>

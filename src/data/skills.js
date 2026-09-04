@@ -7,7 +7,7 @@ export const skillGroups = [
   },
   {
     title: { fr: 'Back-End', en: 'Back-End' },
-    items: ['Java (Spring Boot)', 'Laravel (v8–11)', 'Node.js', 'PHP', 'Python', 'Django', 'API REST'],
+    items: ['Java (Spring Boot)', 'Laravel (v8–11)', 'Node.js', 'PHP', 'API REST'],
   },
   {
     title: { fr: 'Bases de données', en: 'Databases' },
