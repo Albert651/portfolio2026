@@ -1,32 +1,7 @@
 // Toutes les missions ont été réalisées en télétravail.
 // Champs traduisibles au format { fr, en } ; utiliser tr() côté composant.
 export const experiences = [
-  {
-    title: {
-      fr: 'Développeur Web Freelance — CMS & Automatisation',
-      en: 'Freelance Web Developer — CMS & Automation',
-    },
-    company: { fr: 'Indépendant', en: 'Self-employed' },
-    location: 'Toliara',
-    period: { fr: 'Depuis juin 2026', en: 'Since June 2026' },
-    type: { fr: 'Freelance', en: 'Freelance' },
-    remote: true,
-    highlights: [
-      {
-        fr: 'Conception et développement de sites WordPress et de boutiques Shopify pour des clients directs : thèmes sur mesure, intégration de maquettes, mise en ligne et maintenance.',
-        en: 'Design and development of WordPress websites and Shopify stores for direct clients: custom themes, mockup integration, go-live and maintenance.',
-      },
-      {
-        fr: 'Automatisation des processus clients (Make, Zapier, n8n) et connexion aux CRM et outils métier.',
-        en: 'Automation of client processes (Make, Zapier, n8n) and integration with CRMs and business tools.',
-      },
-      {
-        fr: 'Suivi SEO et reporting : Google Search Console, Google Analytics, Google Ads, DataForSEO.',
-        en: 'SEO tracking and reporting: Google Search Console, Google Analytics, Google Ads, DataForSEO.',
-      },
-    ],
-    stack: ['WordPress', 'Shopify', 'Make', 'n8n', 'DataForSEO'],
-  },
+  
   {
     title: {
       fr: 'Développeur CMS — WordPress & Shopify',
@@ -34,7 +9,7 @@ export const experiences = [
     },
     company: { fr: 'Agence Elevex', en: 'Elevex Agency' },
     location: { fr: 'Canada', en: 'Canada' },
-    period: { fr: 'Juin – Août 2026 · CDD 3 mois', en: 'June – Aug 2026 · 3-month contract' },
+    period: { fr: 'Mai – Août 2026 · CDD 4 mois', en: 'June – Aug 2026 · 3-month contract' },
     type: { fr: 'CDD', en: 'Fixed-term' },
     remote: true,
     highlights: [
@@ -157,7 +132,7 @@ export const experiences = [
     title: { fr: 'Stagiaire Développement Web', en: 'Web Development Intern' },
     company: 'PRINCEPT I-WEB',
     location: 'Antananarivo',
-    period: { fr: 'Août 2022 – Novembre 2022', en: 'August 2022 – November 2022' },
+    period: { fr: 'Août 2021 – Novembre 2021', en: 'August 2021 – November 2021' },
     type: { fr: 'Stage', en: 'Internship' },
     remote: true,
     highlights: [

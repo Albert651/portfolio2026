@@ -2,8 +2,8 @@
 // Utiliser tr(champ) dans les composants (voir i18n/LanguageContext).
 export const profile = {
   name: 'Zafimandimby Albert',
-  photo: '/Profil2.png',
-  cv: '/CV_Zafimandimby_Albert.pdf',
+  photo: '/profil1.jpeg',
+  cv: '/Albert.pdf',
   calendly: 'https://calendly.com/albertzaf12/30min',
   role: { fr: 'Développeur Full-Stack', en: 'Full-Stack Developer' },
   tagline: {
@@ -46,12 +46,20 @@ export const profile = {
   ],
   education: [
     {
+      degree: { fr: 'Master en Informatique ', en: 'Master’s Degree in Computer Science' },
+      school: {
+        fr: 'École Nationale d’Informatique, Fianarantsoa',
+        en: 'National School of Computer Science, Fianarantsoa',
+      },
+      period: '2025 - 2026 (encour)',
+    },
+    {
       degree: { fr: 'Licence en Informatique', en: 'Bachelor’s Degree in Computer Science' },
       school: {
         fr: 'École Nationale d’Informatique, Fianarantsoa',
         en: 'National School of Computer Science, Fianarantsoa',
       },
-      period: '2019 – 2023',
+      period: '2023 – 2024',
     },
     {
       degree: { fr: 'Baccalauréat Scientifique', en: 'Scientific High-School Diploma' },
